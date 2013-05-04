@@ -16,7 +16,7 @@ module Cupertino
       end
 
       def get(uri, parameters = [], referer = nil, headers = {})
-        uri = ::File.join("https://#{Cupertino::ProvisioningPortal::HOST}", uri) unless /^https?/ === uri
+        uri = ::File.join("https://#{Cupertino::ProvisioningPortal::HOST}", uri) unless /^(https?)|(file:\/\/localhost)/ === uri
 
         3.times do
           super(uri, parameters, referer, headers)
@@ -245,6 +245,7 @@ module Cupertino
           app_id = AppID.new
           app_id.bundle_seed_id = [row['prefix'], row['identifier']].join(".")
           app_id.description = row['name']
+          app_id.display_id = row['appIdId']
 
           app_id.development_properties, app_id.distribution_properties = [], []
           row['features'].each do |feature, value|
