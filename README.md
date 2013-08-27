@@ -1,5 +1,4 @@
-# Cupertino
-**CLI for the Apple Dev Center**
+![Cupertino](https://raw.github.com/mattt/nomad-cli.com/assets/cupertino-banner.png)
 
 Automate administrative tasks that you would normally have to do through the Apple Dev Center websites. Life's too short to manage device identifiers by hand!
 
